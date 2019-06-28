@@ -52,7 +52,8 @@
 
 - (void)GetReady
 {
-    manb = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+//    manb = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    manb = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:nil];
 //    if (!app.player) {
 //        app.player = [[LoaclMusic alloc] init];
 //        [app.player getData];
@@ -84,6 +85,9 @@
         case CBManagerStatePoweredOff:
          
             NSLog(@"poweredOff");
+            
+            [app centralOff];
+            
             state = false;
             if (app.mBluzConnector) {
                 [app.mBluzConnector scanStop];
@@ -113,6 +117,8 @@
         return;
     }
 }
+
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -289,7 +295,9 @@
 //    }else{
 //        self.isUsbModel = false;
 //    }
-
+    
+    NSLog(@"音箱当前模式 ---- %u , -存储的模式%ld",(unsigned int)mode,app.model);
+    
     if (app.model == 99) {
         app.model = mode;
         return;
@@ -298,43 +306,60 @@
     if (mode == 14) {
         
     }else if (mode == 0){
-        
+        app.model = mode;
         [app.usbSpeakerManager pause];
         [app.musicManager pause];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationMode" object:[NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%ld",app.model]]];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"musicStart" object:[NSString stringWithFormat:@""]];
-        app.model = mode;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+ 
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"musicStart" object:[NSString stringWithFormat:@""]];
+            
+        });
         
     }else if (mode == 2){
         
+        app.model = mode;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"musicSuspended" object:[NSString stringWithFormat:@""]];
-        [app.musicManager pause];
+//        [app.musicManager pause];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationMode" object:[NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%ld",app.model]]];
         
-        [app.usbSpeakerManager play];
-        app.model = mode;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    
+            [app.usbSpeakerManager play];
+
+        });
+        
     }else if (mode == 3){
         
+        app.model = mode;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"musicSuspended" object:[NSString stringWithFormat:@""]];
         [app.usbSpeakerManager pause];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationMode" object:[NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%ld",app.model]]];
         
-        [app.musicManager play];
-        app.model = mode;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+            [app.musicManager play];
+            
+        });
+        
     }else if (mode == 4){
         
+        app.model = mode;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"musicSuspended" object:[NSString stringWithFormat:@""]];
         [app.usbSpeakerManager pause];
         [app.musicManager pause];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationMode" object:[NSString stringWithFormat:@"%ld",app.model]];
-        app.model = mode;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RegistrationMode" object:[NSString stringWithFormat:@"%ld",app.model]];
+            
+        });
+        
     }else{
         app.model = mode;
     }
-    
-    NSLog(@"音箱当前模式 ---- %u , -存储的模式%ld",(unsigned int)mode,app.model);
     
 }
 

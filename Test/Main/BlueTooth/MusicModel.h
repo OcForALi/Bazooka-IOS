@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *songArr;
 ///正在播放第几首
 @property (nonatomic, assign) NSInteger songIndex;
-///播放状态
+///播放状态  YES == 正在播放  NO == 无播放
 @property (nonatomic ,assign) BOOL isPlay;
 
 - (void)getData;

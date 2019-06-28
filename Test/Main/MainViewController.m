@@ -497,9 +497,9 @@
 //        if ([self model].getAppDelegate.player.player.rate == 1) {
 //            [self.bluetoothVC cn_startai_pauseSong];
 //        }
-
+    
     [self.fmVC cn_startai_registerAppDelegate:[self.model getAppDelegate] mode:MODE_RADIO];
-
+    
     if (self.model.connected) {
         self.intoFM = true;
     }
@@ -828,6 +828,8 @@
     
     self.connected = false;
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"musicSuspended" object:[NSString stringWithFormat:@""]];
+    
     if ([hand isEqualToString:@"break"]) {
         [[self lastWindow] addSubview:self.maskView];
         [self.maskView addSubview:self.breakPop];
@@ -898,7 +900,7 @@
 #pragma mark 蓝牙连接事件
 - (void)connectedPeripheralSucess:(NSString *)name
 {
-
+    
     self.slideBool = YES;
     [self.connectionFailedTime invalidate];
     self.connectionFailedTime = nil;

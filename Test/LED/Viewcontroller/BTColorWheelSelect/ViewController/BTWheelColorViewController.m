@@ -120,7 +120,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-
+    self.view.userInteractionEnabled = YES;
+    
     [self cn_startai_initContentView];
 }
 
@@ -430,7 +431,7 @@
 //        [self cn_startai_showToastWithTitle:NSLocalizedString(@"LedOff", nil)];
 //        return;
 //    }
-    
+
     if ([self point:point inCircleRect:CGRectMake(self.sourceImgView.left+20,
                                           self.sourceImgView.top+20,
                                           self.sourceImgView.width-40,
@@ -438,22 +439,24 @@
       
         self.yuanxinView.center = point;
         
+        NSArray *colorArr = [self.view colorAtPixel:self.yuanxinView.center];
+        
+        [self.pickView updateColorValueWithRed:[colorArr[0] integerValue]
+                                         Green:[colorArr[1] integerValue]
+                                          Blue:[colorArr[2] integerValue]];
+        
     }else if([self point:point inCircleRect:CGRectMake(self.sourceImgView.left,
                                                        self.sourceImgView.top,
                                                        self.sourceImgView.width,
                                                        self.sourceImgView.height)]){
         
     }else{
-        return;
+//        return;
     }
     
-    NSArray *colorArr = [self.view colorAtPixel:self.yuanxinView.center];
-
-    [self.pickView updateColorValueWithRed:[colorArr[0] integerValue]
-                                   Green:[colorArr[1] integerValue]
-                                    Blue:[colorArr[2] integerValue]];
-    if (end ) {
-        [self sendColorChange:colorArr];
+    NSArray *array = @[@(self.pickView.rgb.red),@(self.pickView.rgb.green),@(self.pickView.rgb.blue)];
+    if (end) {
+        [self sendColorChange:array];
     }
     
 }

@@ -107,6 +107,12 @@
     
     self.introduceView.songInteger = appDelegate.musicModel.songIndex;
     
+    if (appDelegate.musicModel.isPlay == YES){
+        self.playControl.playImg = [UIImage imageNamed:@"pause"];
+    }else{
+       self.playControl.playImg = [UIImage imageNamed:@"play"];
+    }
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated

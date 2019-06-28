@@ -444,4 +444,26 @@
     [[MPNowPlayingInfoCenter defaultCenter]setNowPlayingInfo:info];
 }
 
+- (void)centralOff{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"BluetoothRemind", nil) preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"good", nil) style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"setUp", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSURL *url = [NSURL URLWithString:@"App-Prefs:root=Bluetooth"];
+        if ([[UIApplication sharedApplication]canOpenURL:url]) {
+            
+            [[UIApplication sharedApplication]openURL:url];
+        }
+        
+    }];
+    
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
+    
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+    
+}
+
 @end

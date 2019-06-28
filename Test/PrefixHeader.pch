@@ -48,6 +48,6 @@
 #define IPHONEFringe (IS_IPHONE_X ? 34 : 0)
 #define IPHONEBottom (IS_IPHONE_X ? 34 : 0)
 
-#define Limit_time @"2019-6-29" //不连接蓝牙无法下拉 限制在该时间前不限制
+#define Limit_time @"2019-6-30" //不连接蓝牙无法下拉 限制在该时间前不限制
 
 #endif /* PrefixHeader_pch */

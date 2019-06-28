@@ -49,6 +49,7 @@ typedef NS_ENUM(NSInteger,QXConnectType){
 
 - (void)saveContext;
 
+- (void)centralOff;
 
 @end
 
