@@ -37,6 +37,7 @@
 
 - (void)cn_startai_initContentView
 {
+    
     [self.view addSubview:self.backGroundView];
     [self.view addSubview:self.logoView];
     [self.view addSubview:self.sloganView];
