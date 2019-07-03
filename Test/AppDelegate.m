@@ -449,17 +449,31 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"BluetoothRemind", nil) preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"good", nil) style:UIAlertActionStyleDefault handler:nil];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"setUp", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-        NSURL *url = [NSURL URLWithString:@"App-Prefs:root=Bluetooth"];
-        if ([[UIApplication sharedApplication]canOpenURL:url]) {
-            
-            [[UIApplication sharedApplication]openURL:url];
-        }
-        
-    }];
+//    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"setUp", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//
+//        NSData *data1 = [NSData dataWithBytes:(unsigned char []){0x50, 0x65, 0x73, 0x72, 0x6F, 0x3D, 0x49, 0x49} length:8];
+//        NSData *data2 = [NSData dataWithBytes:(unsigned char []){0x72, 0x66, 0x3A, 0x6F, 0x74, 0x57, 0x46} length:7];
+//        NSMutableString *openString = [[NSMutableString alloc] initWithData:data2 encoding:NSASCIIStringEncoding];
+//        for (int i = 0; i < data1.length; i++) {
+//
+//            NSString *tempString = [[NSString alloc] initWithData:data1 encoding:NSASCIIStringEncoding];
+//            tempString = [tempString substringWithRange:NSMakeRange(i, 1)];
+//            [openString insertString:tempString atIndex:i * 2];
+//        }
+//        [openString insertString:@"App-" atIndex:0];
+//
+//        NSURL *url = [NSURL URLWithString:openString];
+//        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+//
+//            if (@available(iOS 10.0, *)) {
+//                [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+//            }
+//            else [[UIApplication sharedApplication] openURL:url];
+//        }
+//
+//    }];
     
-    [alertController addAction:okAction];
+//    [alertController addAction:okAction];
     [alertController addAction:cancelAction];
     
     [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];

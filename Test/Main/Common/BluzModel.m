@@ -127,10 +127,12 @@
     NSString *string = [NSString stringWithFormat:@"%@",alertbutton];
     if ([string isEqualToString:@"设置"]) {
         
-        NSURL *url = [NSURL URLWithString:@"App-Prefs:root=Bluetooth"];
-        if ([[UIApplication sharedApplication]canOpenURL:url]) {
-            
-            [[UIApplication sharedApplication]openURL:url];
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if (@available(iOS 10.0, *)) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        }
+        else {
+            [[UIApplication sharedApplication] openURL:url];
         }
         
     }
