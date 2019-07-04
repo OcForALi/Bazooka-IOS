@@ -85,7 +85,13 @@
     animation.removedOnCompletion = false;
     [self.signView.layer addAnimation:animation forKey:nil];
      self.angle = 0.0;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMain:) name:@"ReturnMain" object:nil];
+}
 
+- (void)returnMain:(NSNotification *)not{
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 -(void)controlVolume

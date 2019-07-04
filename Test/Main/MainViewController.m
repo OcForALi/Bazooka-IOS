@@ -119,7 +119,6 @@
         self.slideBool = YES;
     }
     
-    
     [self cn_startai_initContentView];
     self.backGroundView.image = [UIImage imageNamed:@"MainBackGround"];
     MPMediaQuery *music = [[MPMediaQuery alloc] init];

@@ -448,7 +448,14 @@
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"BluetoothRemind", nil) preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"good", nil) style:UIAlertActionStyleDefault handler:nil];
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"good", nil) style:UIAlertActionStyleDefault handler:nil];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"good", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReturnMain" object:[NSString stringWithFormat:@""]];
+        
+    }];
+    
 //    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"setUp", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
 //
 //        NSData *data1 = [NSData dataWithBytes:(unsigned char []){0x50, 0x65, 0x73, 0x72, 0x6F, 0x3D, 0x49, 0x49} length:8];
