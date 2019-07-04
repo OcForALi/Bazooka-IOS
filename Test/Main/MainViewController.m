@@ -823,21 +823,22 @@
 - (void)HandleEvent:(NSString *)hand
 {
     
-    self.slideBool = NO;
-    
     self.connected = false;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"musicSuspended" object:[NSString stringWithFormat:@""]];
     
     if ([hand isEqualToString:@"break"]) {
+        self.slideBool = NO;
         [[self lastWindow] addSubview:self.maskView];
         [self.maskView addSubview:self.breakPop];
         _breakPop.text = NSLocalizedString(@"PartyConnectFailure", nil);
     }else if([hand isEqualToString:@"PartybarNotPair"]){
+        self.slideBool = NO;
         [[self lastWindow] addSubview:self.maskView];
         [self.maskView addSubview:self.breakPop];
         _breakPop.text = NSLocalizedString(@"PartybarNotPair", nil);
     }else if ([hand isEqualToString:@"ConnectBluetooth"]){
+        self.slideBool = NO;
         [[self lastWindow] addSubview:self.maskView];
         [self.maskView addSubview:self.breakPop];
         _breakPop.text = NSLocalizedString(@"ConnectBluetooth", nil);
