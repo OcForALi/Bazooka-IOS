@@ -589,7 +589,7 @@
         [self.model GetReady];
     }else{
         self.disconnectBySelfPop.hidden = false;
-//        self.slideBool = NO;
+        self.slideBool = NO;
     }
 }
 
@@ -710,7 +710,7 @@
     self.searchView.alpha = 0.3;
     self.searchView.hidden = true;
     
-//    self.slideBool = NO;
+    self.slideBool = NO;
     
 }
 
