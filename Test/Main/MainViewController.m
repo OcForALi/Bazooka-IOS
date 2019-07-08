@@ -847,6 +847,16 @@
         _breakPop.text = NSLocalizedString(@"ConnectBluetooth", nil);
         _breakPop.single = 1;
     }else{
+        self.slideBool = NO;
+        
+        [self.navigationController popToRootViewControllerAnimated:true];
+        self.searchVC.top = -(SCREEN_WITDH/720.0)*57;
+        self.searchVC.isPull = false;
+        [self.breakPop removeFromSuperview];
+        [self.maskView removeFromSuperview];
+        self.slideBool = NO;
+        [self.model disConnected];
+        
 //        self.resulView.hidden = false;
 //        self.resulView.result = false;
 //        self.resulView.alpha = 1.0;
