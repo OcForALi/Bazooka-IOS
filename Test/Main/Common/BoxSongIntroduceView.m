@@ -134,6 +134,9 @@ static const CGFloat leftLabelHorzital = 20;
 
     }
      [self.scrollView addSubview:self.sliderView];
+    
+    self.scrollView.contentSize = CGSizeMake(self.width - 2*leftLabelHorzital, 40*cardList.count);
+    
 }
 
 - (void)setMusicList:(NSMutableArray *)musicList
@@ -168,6 +171,9 @@ static const CGFloat leftLabelHorzital = 20;
 //        [self.scrollView addSubview:btn];
     }
      [self.scrollView addSubview:self.sliderView];
+    
+    self.scrollView.contentSize = CGSizeMake(self.width - 2*leftLabelHorzital, 40*musicList.count);
+    
 }
 
 - (void)setChannalList:(NSMutableArray *)channalList
@@ -214,6 +220,7 @@ static const CGFloat leftLabelHorzital = 20;
         [self.scrollView addSubview:btn];
     }
      [self.scrollView addSubview:self.sliderView];
+    
 }
 
 - (void)addSonViewWithTitle:(NSString *)title
