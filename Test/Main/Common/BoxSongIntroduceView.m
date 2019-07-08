@@ -7,7 +7,11 @@
 //
 
 #import "BoxSongIntroduceView.h"
-
+typedef NS_ENUM(NSUInteger, ModelType){
+    BluetoothType = 0,
+    USBType,
+    FMType
+};
 //static const CGFloat leftLabelWidth = 70;
 static const CGFloat leftLabelHorzital = 20;
 //static const CGFloat twoLabelHorzital = 15;
@@ -23,6 +27,7 @@ static const CGFloat leftLabelHorzital = 20;
 @property (nonatomic, strong) UIImageView *labelBack;
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *sliderView;
+@property (nonatomic ,assign) ModelType modelType;
 
 @end
 
@@ -121,6 +126,9 @@ static const CGFloat leftLabelHorzital = 20;
 
 - (void)setCardList:(NSMutableArray *)cardList
 {
+    
+    self.modelType = USBType;
+    
     for (UIView *view in self.scrollView.subviews) {
         [view removeFromSuperview];
     }
@@ -141,6 +149,9 @@ static const CGFloat leftLabelHorzital = 20;
 
 - (void)setMusicList:(NSMutableArray *)musicList
 {
+    
+    self.modelType = BluetoothType;
+    
     for (UIView *view in self.scrollView.subviews) {
         [view removeFromSuperview];
     }
@@ -178,6 +189,9 @@ static const CGFloat leftLabelHorzital = 20;
 
 - (void)setChannalList:(NSMutableArray *)channalList
 {
+    
+    self.modelType = FMType;
+    
     for (UIView *view in self.scrollView.subviews) {
         [view removeFromSuperview];
     }
@@ -273,7 +287,11 @@ static const CGFloat leftLabelHorzital = 20;
 - (void)tapSelectedIndex:(UIButton *)btn
 {
     
-    [self color:btn.tag - 100];
+    if (self.modelType == USBType) {
+        
+    }else{
+        [self color:btn.tag - 100];
+    }
     
     if (self.tapSelectedHandler) {
         self.tapSelectedHandler(btn.tag - 100);
