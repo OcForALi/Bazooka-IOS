@@ -336,8 +336,9 @@
         _breakPop.backgroundColor = [UIColor whiteColor];
         _breakPop.alpha = 0.7;
         _breakPop.text = NSLocalizedString(@"PartyConnectFailure", nil);
-        _breakPop.leftText = @"Quit";
-        _breakPop.rightText = @"Retry";
+//        _breakPop.leftText = @"OK";
+        _breakPop.rightText = @"OK";
+        _breakPop.leftBtn.hidden = YES;
         _breakPop.leftHandler = ^{
             [weak_self.navigationController popToRootViewControllerAnimated:true];
             weak_self.searchVC.top = -(SCREEN_WITDH/720.0)*57;
@@ -832,16 +833,19 @@
         [[self lastWindow] addSubview:self.maskView];
         [self.maskView addSubview:self.breakPop];
         _breakPop.text = NSLocalizedString(@"PartyConnectFailure", nil);
+        _breakPop.single = 1;
     }else if([hand isEqualToString:@"PartybarNotPair"]){
         self.slideBool = NO;
         [[self lastWindow] addSubview:self.maskView];
         [self.maskView addSubview:self.breakPop];
         _breakPop.text = NSLocalizedString(@"PartybarNotPair", nil);
+        _breakPop.single = 1;
     }else if ([hand isEqualToString:@"ConnectBluetooth"]){
         self.slideBool = NO;
         [[self lastWindow] addSubview:self.maskView];
         [self.maskView addSubview:self.breakPop];
         _breakPop.text = NSLocalizedString(@"ConnectBluetooth", nil);
+        _breakPop.single = 1;
     }else{
 //        self.resulView.hidden = false;
 //        self.resulView.result = false;

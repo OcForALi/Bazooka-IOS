@@ -16,6 +16,10 @@
 @property (nonatomic, copy) NSString *rightImg;
 @property (nonatomic, copy) NSString *leftText;
 @property (nonatomic, copy) NSString *rightText;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIButton *leftBtn;
+@property (nonatomic, strong) UIButton *rightBtn;
+@property (nonatomic ,assign) NSInteger single;
 
 @property (nonatomic, copy) void(^leftHandler)();
 @property (nonatomic, copy) void(^rightHandler)();

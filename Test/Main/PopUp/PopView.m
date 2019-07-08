@@ -10,10 +10,6 @@
 
 @interface PopView ()
 
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIButton *leftBtn;
-@property (nonatomic, strong) UIButton *rightBtn;
-
 @end
 
 @implementation PopView
@@ -30,20 +26,33 @@
         make.top.equalTo(@(self.height/4.0));
         [self.titleLabel sizeToFit];
     }];
-    
+        
     [self.leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(36));
         make.bottom.equalTo(self.mas_bottom).offset(-41);
         make.width.equalTo(@(155/vScale));
         make.height.equalTo(@(85/vScale));
     }];
-    
-    [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(@(-36));
-        make.bottom.equalTo(self.mas_bottom).offset(-41);
-        make.width.equalTo(@(155/vScale));
-        make.height.equalTo(@(85/vScale));
-    }];
+        
+    if (self.single == 1) {
+        
+        [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@(self.width/2 -  (155/vScale/2)));
+            make.bottom.equalTo(self.mas_bottom).offset(-41);
+            make.width.equalTo(@(155/vScale));
+            make.height.equalTo(@(85/vScale));
+        }];
+        
+    }else{
+
+        [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@(-36));
+            make.bottom.equalTo(self.mas_bottom).offset(-41);
+            make.width.equalTo(@(155/vScale));
+            make.height.equalTo(@(85/vScale));
+        }];
+        
+    }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -141,6 +150,12 @@
 - (void)setRightText:(NSString *)rightText
 {
     [self.rightBtn setTitle:rightText forState:UIControlStateNormal];
+}
+
+- (void)setSingle:(NSInteger)single{
+    
+    _single = single;
+
 }
 
 @end
