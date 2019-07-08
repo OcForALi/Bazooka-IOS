@@ -14,7 +14,7 @@
 "DeleteSeq" = "Are you sure to delete the seq.?";
 "SaveToSaveList" = "Seq. is updated";
 "SaveAsNewSeq" = "Saved as a new seq.";
-"PartyConnectFailure" = "Oops!You failed to connect to PartyBar,please check out Bluetooth range,or try again!";
+"PartyConnectFailure" = "Ouch! You can't connect to PartyBar. Please check the Bluetooth range!";
 "BuettoothClose" = "Please go to settings to open Bluetooth";
 "SearchingDevices" = "Searching for speakers nearby";
 "NoRadio" = "No channels were found";

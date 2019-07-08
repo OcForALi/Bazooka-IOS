@@ -14,7 +14,7 @@
 "DeleteSeq" = "确定删除此闪法吗？";
 "SaveToSaveList" = "设置已保存到现有seq.";
 "SaveAsNewSeq" = "Seq.name发生变化，将为您保存新的seq";
-"PartyConnectFailure" = "哎呀!您无法连接到PartyBar，请检查蓝牙的范围，或再次尝试！";
+"PartyConnectFailure" = "哎呀!您无法连接到PartyBar，请检查蓝牙的范围！";
 "SearchingDevices" = "正在搜索附近音箱";
 "BuettoothClose" = "请前往设置打开蓝牙";
 "NoRadio" = "未搜索到电台";
