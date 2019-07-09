@@ -113,6 +113,8 @@
        self.playControl.playImg = [UIImage imageNamed:@"play"];
     }
     
+    self.playBack.scrollView.contentOffset = CGPointMake(0, 0);
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated

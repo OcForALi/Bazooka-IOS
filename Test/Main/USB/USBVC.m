@@ -70,6 +70,8 @@
         }
     }
     
+    self.playBack.scrollView.contentOffset = CGPointMake(0, 0);
+    
 }
 
 - (instancetype)init

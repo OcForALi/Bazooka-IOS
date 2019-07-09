@@ -252,7 +252,7 @@
     self.musicModel = [[MusicModel alloc] init];
     self.musicModel.isPlay = NO;
     
-    [self.musicModel remoteControlEventHandler];
+//    [self.musicModel remoteControlEventHandler];
     
 }
 
