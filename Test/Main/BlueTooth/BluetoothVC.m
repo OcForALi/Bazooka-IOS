@@ -245,12 +245,9 @@
 - (void)cn_startai_playSong
 {
     
-    MPMediaQuery *music = [[MPMediaQuery alloc] init];
-    MPMediaPropertyPredicate *predicate = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithInteger:MPMediaTypeMusic] forProperty:MPMediaItemPropertyMediaType];
-    [music addFilterPredicate:predicate];
-    NSArray *items = [music items];
+   
     
-    if (items.count > 0) {
+    if ([self getSongsCount] > 0) {
         
         if (appDelegate.musicModel.isPlay == NO) {
             
@@ -281,23 +278,47 @@
 //    self.playControl.playImg = [UIImage imageNamed:@"pause"];
 //    [appDelegate.player cn_startai_playLastSong];
     
-    [appDelegate.musicModel musicLast];
+    if ([self getSongsCount] > 0) {
+        
+        [appDelegate.musicModel musicLast];
+        
+        self.labelView.musicMessage = appDelegate.musicModel.songArr[appDelegate.musicModel.songIndex];
+        
+        self.introduceView.songInteger = appDelegate.musicModel.songIndex;
+        
+    }else{
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Song Library No Songs" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        // 弹出对话框
+        [self presentViewController:alert animated:true completion:nil];
+        
+    }
     
-    self.labelView.musicMessage = appDelegate.musicModel.songArr[appDelegate.musicModel.songIndex];
     
-    self.introduceView.songInteger = appDelegate.musicModel.songIndex;
     
 }
 
 - (void)cn_startai_playNextSong
 {
     
-    [appDelegate.musicModel musicNext];
-    
-    self.labelView.musicMessage = appDelegate.musicModel.songArr[appDelegate.musicModel.songIndex];
-    
-    self.introduceView.songInteger = appDelegate.musicModel.songIndex;
-    
+    if ([self getSongsCount] > 0) {
+        
+        [appDelegate.musicModel musicNext];
+        
+        self.labelView.musicMessage = appDelegate.musicModel.songArr[appDelegate.musicModel.songIndex];
+        
+        self.introduceView.songInteger = appDelegate.musicModel.songIndex;
+        
+    }else{
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Song Library No Songs" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        // 弹出对话框
+        [self presentViewController:alert animated:true completion:nil];
+        
+    }
+
 //    playState = true;
 //    self.playControl.playImg = [UIImage imageNamed:@"pause"];
 //    [appDelegate.player cn_startai_playNextSong];
@@ -386,6 +407,28 @@
 
 - (void)suspended:(NSNotification *)sender{
     self.playControl.playImg = [UIImage imageNamed:@"play"];
+}
+
+- (NSInteger)getSongsCount{
+    
+    MPMediaQuery *music = [[MPMediaQuery alloc] init];
+    MPMediaPropertyPredicate *predicate = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithInteger:MPMediaTypeMusic] forProperty:MPMediaItemPropertyMediaType];
+    [music addFilterPredicate:predicate];
+    NSArray *items = [music items];
+    
+    NSMutableArray *itemsURLArray = [NSMutableArray array];
+    
+    for (MPMediaItemCollection *songCollection in items) {
+        
+        MPMediaItem *songItem = songCollection.representativeItem;
+        if ([songItem valueForProperty:MPMediaItemPropertyAssetURL] != nil) {
+            [itemsURLArray addObject:songItem];
+        }
+        
+    }
+    
+    return itemsURLArray.count;
+    
 }
 
 @end

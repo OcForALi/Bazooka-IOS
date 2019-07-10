@@ -76,8 +76,10 @@
         entity.albumTitle = [song valueForProperty:MPMediaItemPropertyAlbumTitle];
         entity.total= [[song valueForKey:MPMediaItemPropertyPlaybackDuration] integerValue];
         entity.item = song;
-        [self.songArr addObject:entity];
         
+        if (entity.songURL != nil) {
+            [self.songArr addObject:entity];
+        }
     }
     
 }

@@ -121,6 +121,7 @@
     
     [self cn_startai_initContentView];
     self.backGroundView.image = [UIImage imageNamed:@"MainBackGround"];
+    
     MPMediaQuery *music = [[MPMediaQuery alloc] init];
     MPMediaPropertyPredicate *predicate = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithInteger:MPMediaTypeMusic] forProperty:MPMediaItemPropertyMediaType];
     [music addFilterPredicate:predicate];
