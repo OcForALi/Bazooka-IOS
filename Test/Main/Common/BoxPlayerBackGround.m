@@ -261,6 +261,18 @@
     }
 }
 
+- (void)setPoint:(CGPoint *)point{
+    
+    if (point->x>1) {
+        self.pageOne.image = [UIImage imageNamed:@"PagingPointNormal"];
+        self.pageTwo.image = [UIImage imageNamed:@"PagingPointSelected"];
+    }else{
+        self.pageOne.image = [UIImage imageNamed:@"PagingPointSelected"];
+        self.pageTwo.image = [UIImage imageNamed:@"PagingPointNormal"];
+    }
+    
+}
+
 - (void)swipAction:(UISwipeGestureRecognizer *)swip
 {
     if (swip.direction == UISwipeGestureRecognizerDirectionLeft && self.scrollView.contentSize.width > self.width) {

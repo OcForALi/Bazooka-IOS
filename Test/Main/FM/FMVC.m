@@ -54,7 +54,11 @@
             }
         }
     }
-    self.playBack.scrollView.contentOffset = CGPointMake(0, 0);
+    
+    CGPoint point = CGPointMake(0, 0);
+    self.playBack.scrollView.contentOffset = point;
+    [self.playBack setPoint:&point];
+    
 }
 
 - (void)viewDidLoad {

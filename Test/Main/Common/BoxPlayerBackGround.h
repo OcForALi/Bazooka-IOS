@@ -13,4 +13,6 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, assign) BOOL hidePage;
 
+- (void)setPoint:(CGPoint *)point;
+
 @end
