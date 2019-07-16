@@ -359,20 +359,16 @@ static const CGFloat leftLabelHorzital = 20;
         }
         
     }
-    
-    if (integer > 6) {
         
-        if (integer * 40 < self.scrollView
-            .height/2) {
-            self.scrollView.contentOffset = CGPointMake(0, 0);
-        }else if (integer * 40 > (self.cardList.count - 4) * 40 || integer * 40 > (self.channalList.count - 4) * 40 || integer * 40 > (self.musicList.count - 4) * 40){
-            self.scrollView.contentOffset = CGPointMake(0, integer * 40 - self.scrollView
-                                                        .height/1.5);
-        }else{
-            self.scrollView.contentOffset = CGPointMake(0, integer * 40 - self.scrollView
-                                                        .height/2);
-        }
-        
+    if (integer * 40 < self.scrollView
+        .height/2) {
+        self.scrollView.contentOffset = CGPointMake(0, 0);
+    }else if (integer * 40 > (self.cardList.count - 4) * 40 || integer * 40 > (self.channalList.count - 4) * 40 || integer * 40 > (self.musicList.count - 4) * 40){
+        self.scrollView.contentOffset = CGPointMake(0, integer * 40 - self.scrollView
+                                                    .height/1.5);
+    }else{
+        self.scrollView.contentOffset = CGPointMake(0, integer * 40 - self.scrollView
+                                                    .height/2);
     }
 
 }

@@ -31,7 +31,6 @@
 {
     [_timer invalidate];
     _timer = nil;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
