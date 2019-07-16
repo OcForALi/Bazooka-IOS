@@ -89,6 +89,14 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        if ([[BKUserDefaults objectForKey:DeviceUUIDD] isKindOfClass:[NSString class]]) {
+            [self paired];
+        }
+        
+    });
 
 }
 
@@ -856,7 +864,7 @@
         [self.breakPop removeFromSuperview];
         [self.maskView removeFromSuperview];
         self.slideBool = NO;
-        [self.model disConnected];
+//        [self.model disConnected];
         
 //        self.resulView.hidden = false;
 //        self.resulView.result = false;
@@ -870,7 +878,6 @@
     }
     self.model.disconnectedBySelf = false;
     self.model.peripheralArr = [NSMutableArray array];
-    [self.model disConnected];
     self.searchView.dataArr = [NSMutableArray array];
     self.searchView.hidden = true;
     self.searchVC.connected = false;

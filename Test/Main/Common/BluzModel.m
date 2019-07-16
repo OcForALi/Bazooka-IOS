@@ -190,7 +190,17 @@
     if ([self.delegate respondsToSelector:@selector(refershPeripheral:)]) {
         [self.delegate refershPeripheral:self.peripheralArr];
     }
-
+    
+    if ([[BKUserDefaults objectForKey:DeviceUUIDD] isKindOfClass:[NSString class]]) {
+        
+        if ([peripheral.identifier.UUIDString isEqualToString:[BKUserDefaults objectForKey:DeviceUUIDD]]) {
+            
+            [app.mBluzConnector connect:peripheral];
+            
+        }
+        
+    }
+    
 }
 
 - (void)connectedPeripheral:(CBPeripheral *)peripheral
@@ -209,7 +219,11 @@
     if (key!=-1) {
         [app.globalManager sendCustomCommand:key param1:0 param2:0 others:nil];
     }
-  
+    
+    [BKUserDefaults setObject:myPeripheral.identifier.UUIDString forKey:DeviceUUIDD];
+    
+    NSLog(@"设备 UUID %@",myPeripheral.identifier.UUIDString);
+    
 }
 
 - (void)disconnectedPeripheral:(CBPeripheral *)peripheral
@@ -242,6 +256,9 @@
             [self.delegate HandleEvent:@"off"];
         }
     }
+    
+    [BKUserDefaults setObject:nil forKey:DeviceUUIDD];
+    
 }
 
 
