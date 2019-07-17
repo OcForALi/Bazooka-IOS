@@ -19,6 +19,7 @@
 #import "BTWheelPickColorView.h"
 #import "BTWheelPickColorCarbon.h"
 #import "PopView.h"
+
 @interface BTWheelColorViewController ()<UIGestureRecognizerDelegate,GlobalDelegate>
 {
     AppDelegate *appDelegate;
@@ -645,6 +646,8 @@
 - (void)modeChanged:(UInt32)mode
 {
     appDelegate.model = mode;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ModeChanged" object:[NSString stringWithFormat:@"%d",mode]];
+    
 }
 
 #pragma mark 音箱音效模式变化

@@ -181,7 +181,7 @@
 
 - (void)modeChanged:(UInt32)mode
 {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ModeChanged" object:[NSString stringWithFormat:@"%d",mode]];
 }
 
 -(void)customCommandArrived:(UInt32)cmdKey param1:(UInt32)arg1 param2:(UInt32)arg2 others:(NSData *)data

@@ -38,6 +38,6 @@
 - (AppDelegate *)getAppDelegate;
 - (void)GetReady;
 - (void)disConnected;
-
+-(void)modeChanged:(UInt32)mode;
 
 @end

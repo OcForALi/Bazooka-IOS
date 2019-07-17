@@ -218,7 +218,7 @@
 
 - (void)modeChanged:(UInt32)mode
 {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ModeChanged" object:[NSString stringWithFormat:@"%d",mode]];
 }
 
 #pragma mark 音箱音效模式变化

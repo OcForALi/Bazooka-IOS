@@ -159,6 +159,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registrationMode:) name:@"RegistrationMode" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modeChanged:) name:@"ModeChanged" object:nil];
 }
 
 - (BluzModel *)model
@@ -1064,6 +1065,12 @@
     self.searchView.dataArr = peripherialArr;
 }
 
+- (void)modeChanged:(NSNotification *)sender{
+    
+    [self.model modeChanged:[sender.object intValue]];
+    
+}
+
 - (void)statusBarFrameWillChange:(NSNotification *)sender{
     
     [self statusBarChange];
@@ -1075,6 +1082,7 @@
     [self statusBarChange];
     
 }
+
 #pragma mark   状态栏 变化改变布局
 - (void)statusBarChange{
     
