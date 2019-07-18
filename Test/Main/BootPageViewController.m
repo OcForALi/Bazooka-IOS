@@ -45,6 +45,7 @@
     num = 0;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(numChange) userInfo:nil repeats:true];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    
 }
 
 - (void)numChange

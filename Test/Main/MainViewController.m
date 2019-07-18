@@ -611,7 +611,6 @@
 #pragma mark 系统音量变化
 -(void)volumeChanged:(NSNotification *)notifi
 {
-    NSLog(@"系统音量变化 %@",notifi);
     if ([notifi.name isEqualToString:@"AVSystemController_SystemVolumeDidChangeNotification"]) {
     
         NSString * style = [notifi.userInfo objectForKey:@"AVSystemController_AudioCategoryNotificationParameter"];

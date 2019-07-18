@@ -140,7 +140,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-//    [appDelegate.globalManager setVolume:(UInt32)(appDelegate.player.player.volume*appDelegate.maxVoice)];
+//    [appDelegate.globalManager setVolume:(UInt32)(appDelegate.player.volume*appDelegate.maxVoice)];
 }
 
 - (instancetype)init

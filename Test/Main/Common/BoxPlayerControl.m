@@ -276,6 +276,9 @@
 
 - (void)setSetVoice:(CGFloat)setVoice
 {
+    
+    NSLog(@"%lf",setVoice);
+    
     _sliderView.value = setVoice;
 }
 

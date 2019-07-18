@@ -235,16 +235,18 @@
 
 - (void)setValue:(CGFloat)value
 {
-
-    if (value > 0 && value < 1) {
-        _value = value;
-    }else if (value >1){
-        return;
-    }else if (value == 0){
-        _value = 0;
-    } else{
+    if (value > 1 || value < 0) {
         return;
     }
+//    if (value > 0 && value < 1) {
+        _value = value;
+//    }else if (value >1){
+//        return;
+//    }else if (value == 0){
+//        _value = 0;
+//    } else{
+//        return;
+//    }
 
     [self.progressView setProgress:_value];
     [self layoutSubviews];
