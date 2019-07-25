@@ -966,7 +966,7 @@
 //    @"BAZ-G2-FM"
     if ([name containsString:@"FM"]) {
         [self.model getAppDelegate].conncetType = BAZ_G2_FM;
-        vertical = 40;
+        vertical = SCREEN_WITDH * 0.12;
         self.fmBtn.hidden = false;
         self.usbBtn.hidden = false;
         self.auxiliaryBtn.hidden = true;
@@ -979,7 +979,7 @@
 //        self.externalControlbtn.frame =  CGRectMake( 30, _ledBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
     }else{
         [self.model getAppDelegate].conncetType = BAZ_G2;
-        vertical = 30;
+        vertical = SCREEN_WITDH * 0.08;
         self.fmBtn.hidden = true;
         self.usbBtn.hidden = false;
         self.auxiliaryBtn.hidden = false;
