@@ -134,7 +134,6 @@
 //        self.playControl.playImg = [UIImage imageNamed:@"play"];
 //    }
     
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -190,7 +189,6 @@
     if (!_playBack) {
         _playBack = [[BoxPlayerBackGround alloc] initWithFrame:CGRectMake(25, SCREEN_HEIGHT-hei-30-IPHONEBottom, SCREEN_WITDH-50, hei)];
         _playBack.scrollView.scrollEnabled = NO;
-        
     }
     return _playBack;
 }

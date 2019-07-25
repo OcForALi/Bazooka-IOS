@@ -64,11 +64,11 @@
 {
     [super viewWillAppear:animated];
     
-//    if (appDelegate.isConnected ) {
-//        if ((round)(self.playControl.volumeValue * appDelegate.maxVoice) != appDelegate.currentVoice) {
-//            self.playControl.setVoice = appDelegate.currentVoice / (float)appDelegate.maxVoice;
-//        }
-//    }
+    if (appDelegate.isConnected ) {
+        if ((round)(self.playControl.volumeValue * appDelegate.maxVoice) != appDelegate.currentVoice) {
+            self.playControl.setVoice = appDelegate.currentVoice / (float)appDelegate.maxVoice;
+        }
+    }
     
     CGPoint point = CGPointMake(0, 0);
     self.playBack.scrollView.contentOffset = point;
