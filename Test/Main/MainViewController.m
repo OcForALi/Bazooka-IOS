@@ -90,7 +90,7 @@
 {
     [super viewDidAppear:animated];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         if ([[BKUserDefaults objectForKey:DeviceUUIDD] isKindOfClass:[NSString class]]) {
             
@@ -896,7 +896,7 @@
         [self cn_startai_showToastWithTitle:@"升级失败"];
     }
     
-    [self.model getAppDelegate].conncetType = BAZ_None;
+//    [self.model getAppDelegate].conncetType = BAZ_None;
 //    vertical = 20;
 //    self.fmBtn.hidden = false;
 //    self.usbBtn.hidden = false;
@@ -909,17 +909,17 @@
 //    self.ledBtn.frame = CGRectMake( 30, _auxiliaryBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
 //    self.externalControlbtn.frame =  CGRectMake( 30, _ledBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
     
-    vertical = 30;
-    self.fmBtn.hidden = true;
-    self.usbBtn.hidden = false;
-    self.auxiliaryBtn.hidden = false;
-    self.externalControlbtn.hidden = false;
-    self.bluetoothBtn.frame = CGRectMake(30, NavBarHeight+20, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
-    //        self.fmBtn.frame = CGRectMake( 30, _bluetoothBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
-    self.usbBtn.frame = CGRectMake( 30, _bluetoothBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
-    self.auxiliaryBtn.frame = CGRectMake( 30, _usbBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
-    self.ledBtn.frame = CGRectMake( 30, _auxiliaryBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
-    self.externalControlbtn.frame =  CGRectMake( 30, _ledBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
+//    vertical = 30;
+//    self.fmBtn.hidden = true;
+//    self.usbBtn.hidden = false;
+//    self.auxiliaryBtn.hidden = false;
+//    self.externalControlbtn.hidden = false;
+//    self.bluetoothBtn.frame = CGRectMake(30, NavBarHeight+20, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
+//    //        self.fmBtn.frame = CGRectMake( 30, _bluetoothBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
+//    self.usbBtn.frame = CGRectMake( 30, _bluetoothBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
+//    self.auxiliaryBtn.frame = CGRectMake( 30, _usbBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
+//    self.ledBtn.frame = CGRectMake( 30, _auxiliaryBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
+//    self.externalControlbtn.frame =  CGRectMake( 30, _ledBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
     
 }
 
@@ -971,6 +971,7 @@
         self.usbBtn.hidden = false;
         self.auxiliaryBtn.hidden = true;
         self.externalControlbtn.hidden = true;
+        
         self.bluetoothBtn.frame = CGRectMake(30, NavBarHeight+60, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
         self.fmBtn.frame = CGRectMake( 30, _bluetoothBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
         self.usbBtn.frame = CGRectMake( 30, _fmBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
@@ -984,8 +985,12 @@
         self.usbBtn.hidden = false;
         self.auxiliaryBtn.hidden = false;
         self.externalControlbtn.hidden = false;
+        
+//        [self.bluetoothBtn setFrame:CGRectMake(30, NavBarHeight+20, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60))];
+        
         self.bluetoothBtn.frame = CGRectMake(30, NavBarHeight+20, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
 //        self.fmBtn.frame = CGRectMake( 30, _bluetoothBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
+        
         self.usbBtn.frame = CGRectMake( 30, _bluetoothBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
         self.auxiliaryBtn.frame = CGRectMake( 30, _usbBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
         self.ledBtn.frame = CGRectMake( 30, _auxiliaryBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
