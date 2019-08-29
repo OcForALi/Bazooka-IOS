@@ -101,7 +101,7 @@
         }
         
     });
-
+    
 }
 
 - (void)viewDidLoad {
@@ -187,6 +187,7 @@
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
     pan.minimumNumberOfTouches = 1;
     [self.view addGestureRecognizer:pan];
+    
 }
 
 - (UIButton *)updateBtn
@@ -996,7 +997,7 @@
         self.ledBtn.frame = CGRectMake( 30, _auxiliaryBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
         self.externalControlbtn.frame =  CGRectMake( 30, _ledBtn.bottom+vertical, SCREEN_WITDH-60, (92/395.0)*(SCREEN_WITDH-60));
     }
-
+    
     if ([[NSUserDefaults standardUserDefaults]integerForKey:@"updateSucess"] == 1) {
         [self update];
     }

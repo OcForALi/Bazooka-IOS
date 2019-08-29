@@ -542,6 +542,13 @@
 			path = Upgrade;
 			sourceTree = "<group>";
 		};
+		04CFC4052317C6F5000CCF1A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		04D461081F73B7E300CCE574 = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +574,7 @@
 		04D461131F73B7E300CCE574 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				04CFC4052317C6F5000CCF1A /* New Group */,
 				04B154E020030E9800EADECE /* Upgrade */,
 				04D4614A1F73B82F00CCE574 /* LED */,
 				04D461A11F73B82F00CCE574 /* Main */,

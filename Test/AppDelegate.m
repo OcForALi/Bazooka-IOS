@@ -314,7 +314,7 @@
             [self addNSNotificationForPlayMusicFinish];
             
             [self configNowPlayingCenter];
- 
+            
         }
     }
 }

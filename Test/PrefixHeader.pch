@@ -51,7 +51,7 @@
 //全局UserDefaults
 #define BKUserDefaults [NSUserDefaults standardUserDefaults]
 
-#define Limit_time @"2019-7-1" //不连接蓝牙无法下拉 限制在该时间前不限制
+#define Limit_time @"2019-8-6" //不连接蓝牙无法下拉 限制在该时间前不限制
 
 #define DeviceUUIDD @"DeviceUUIDD"
 
